@@ -1,6 +1,7 @@
 package com.mittsu.markedview;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
@@ -45,6 +46,7 @@ public final class MarkedView extends WebView {
         init();
     }
 
+    @TargetApi(11)
     @SuppressLint("SetJavaScriptEnabled")
     private void init(){
         // default browser is not called.
@@ -61,7 +63,9 @@ public final class MarkedView extends WebView {
         loadUrl("file:///android_asset/html/md_preview.html");
 
         getSettings().setJavaScriptEnabled(true);
-        getSettings().setAllowUniversalAccessFromFileURLs(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            getSettings().setAllowUniversalAccessFromFileURLs(true);
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         }
