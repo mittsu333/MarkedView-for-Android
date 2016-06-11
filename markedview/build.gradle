@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 23
@@ -16,5 +17,13 @@ android {
             assets.srcDirs = ['src/main/assets']
         }
     }
+}
 
+publish {
+    userOrg = 'mittsuu'
+    groupId = 'com.mittsu'
+    artifactId = 'markedview'
+    publishVersion = '1.0.0'
+    desc = 'The MarkedView is the markdown text viewer.'
+    website = 'https://github.com/mittsuu/MarkedView-for-Android'
 }
