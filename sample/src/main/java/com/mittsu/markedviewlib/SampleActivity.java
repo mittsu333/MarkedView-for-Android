@@ -14,10 +14,10 @@ public class SampleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
 
-        FileCopyManager fcm = new FileCopyManager(getApplicationContext());
+        FileCopyManager fcm = new FileCopyManager(this);
 
         MarkedView mdView = (MarkedView)findViewById(R.id.md_view);
-        File mdFile = new File(fcm.getFilePath(getApplicationContext()));
+        File mdFile = new File(fcm.getSampleFilePath(this));
         mdView.loadMDFile(mdFile);
 
     }

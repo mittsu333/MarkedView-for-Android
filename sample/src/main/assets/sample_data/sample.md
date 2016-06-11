@@ -1,7 +1,7 @@
 ## MarkedView Example
 ---
 
-![sample_sc](./GitHub-Mark-120px-plus.png)
+![sample_sc](https://assets-cdn.github.com/favicon.ico)
 
 
 ## Introduction
@@ -51,28 +51,10 @@ mdView.setMDText(contents);
 ```
 
 
-
-# under fix todo.
----
-
-
 ## Installation
 ---
 
-MarkedView is available through [CocoaPods](https://cocoapods.org/).
-
-To install it, simply add the following line to your ``` Podfile ```:
-
-
-```
-pod 'MarkedView'
-```
-
-Then run the following command:
-
-```
-$ pod install
-```
+TODO
 
 ## License
 ---

@@ -6,8 +6,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Base64;
 import android.util.Log;
-import android.webkit.JsResult;
-import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -59,19 +58,13 @@ public final class MarkedView extends WebView {
             }
         });
 
-        setWebChromeClient(new WebChromeClient(){
-            @Override
-            public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
-                Log.d("alert:::", "" + message);
-                return true;
-            }
-        });
-        Log.d("alert:::", "test");
-
         loadUrl("file:///android_asset/html/md_preview.html");
 
         getSettings().setJavaScriptEnabled(true);
-//        getSettings().setAllowUniversalAccessFromFileURLs(true);
+        getSettings().setAllowUniversalAccessFromFileURLs(true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
     }
 
     /** load Markdown text from file path. **/
@@ -132,12 +125,17 @@ public final class MarkedView extends WebView {
     private String imgToBase64(String mdText){
         Pattern ptn = Pattern.compile(IMAGE_PATTERN);
         Matcher matcher = ptn.matcher(mdText);
-        if(!matcher.matches()){
+        if(!matcher.find()){
             return mdText;
         }
 
         String imgPath = matcher.group(2);
         if(isUrlPrefix(imgPath) || !isPathExChack(imgPath)) {
+            return mdText;
+        }
+        String baseType = imgEx2BaseType(imgPath);
+        if(baseType.equals("")){
+            // image load error.
             return mdText;
         }
 
@@ -152,7 +150,7 @@ public final class MarkedView extends WebView {
         } catch (IOException e) {
             Log.e(TAG, "IOException:" + e);
         }
-        String base64Img = Base64.encodeToString(bytes, Base64.NO_WRAP);
+        String base64Img = baseType + Base64.encodeToString(bytes, Base64.NO_WRAP);
 
         return mdText.replace(imgPath, base64Img);
     }
@@ -164,7 +162,20 @@ public final class MarkedView extends WebView {
     private boolean isPathExChack(String text){
         return text.endsWith(".png")
                 || text.endsWith(".jpg")
-                || text.endsWith(".jpeg");
+                || text.endsWith(".jpeg")
+                || text.endsWith(".gif");
+    }
+
+    private String imgEx2BaseType(String text){
+        if(text.endsWith(".png")){
+            return "data:image/png;base64,";
+        }else if(text.endsWith(".jpg") || text.endsWith(".jpeg")){
+            return "data:image/jpg;base64,";
+        }else if(text.endsWith(".gif")){
+            return "data:image/gif;base64,";
+        }else{
+            return "";
+        }
     }
 
 }

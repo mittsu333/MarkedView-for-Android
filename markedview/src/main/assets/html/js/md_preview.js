@@ -9,8 +9,6 @@ $(function() {
 
         md_text = md_text.replace(/\\n/g, "\n");
 
-//        alert(md_text);
-
         // markdown html
         var md_html = marked(md_text);
 

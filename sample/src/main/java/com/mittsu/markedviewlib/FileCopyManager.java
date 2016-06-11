@@ -3,11 +3,9 @@ package com.mittsu.markedviewlib;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -21,21 +19,13 @@ import java.io.OutputStream;
 public final class FileCopyManager {
 
     private static final String TAG = FileCopyManager.class.getSimpleName();
-    public static final String APP_STORAGE_PATH = "/mdv_sample/data";
 
     public FileCopyManager(Context c){
         copyAsset2AppDir(c);
     }
 
-    public String getFilePath(Context c){
-        return getPath(c) + "/sample.md";
-    }
-
-    private String getPath(Context c){
-        File appFileDir = c.getExternalFilesDir(null);
-        if(appFileDir == null) return null;
-
-        return appFileDir.getPath() + APP_STORAGE_PATH;
+    public String getSampleFilePath(Context c){
+        return c.getFilesDir() + "/sample.md";
     }
 
     private void copyAsset2AppDir(Context c){
@@ -45,12 +35,8 @@ public final class FileCopyManager {
         try{
             asFiles = am.list("sample_data");
         }catch(IOException e){
-            Toast.makeText(c, "", Toast.LENGTH_SHORT).show();
             Log.e(TAG, "get file from assets error.\n" + e);
         }
-
-        String outputPath = getPath(c);
-        if(outputPath == null) return;
 
         for(String file : asFiles){
 
@@ -59,29 +45,10 @@ public final class FileCopyManager {
 
             try{
                 inputStream = new BufferedInputStream(am.open("sample_data/" + file));
-                File outFile = new File(outputPath, file);
+                FileOutputStream saveFile = c.openFileOutput(file, Context.MODE_PRIVATE);
+                outStream = new BufferedOutputStream(saveFile);
 
-                if(!outFile.getParentFile().exists()){
-                    boolean mkdirs = outFile.getParentFile().mkdirs();
-                    if(!mkdirs) break;
-                }
-
-                if(outFile.exists()){
-                    Log.i(TAG, "file exists.");
-                    continue;
-                }
-
-//                if(file.endsWith(".md")){
-                    outStream = new BufferedOutputStream(new FileOutputStream(outFile));
-                    copyFile(inputStream, outStream);
-
-//                }else{
-//                    BufferedInputStream bis = new BufferedInputStream(inputStream);
-//
-//                }
-
-
-
+                copyFile(inputStream, outStream);
 
             } catch (FileNotFoundException e) {
                 Log.e(TAG, "FileNotFoundException:" + e);
