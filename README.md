@@ -1,11 +1,10 @@
 ## MarkedView Example
----
 
 ![sample_sc](sample_sc.png)
 
 
 ## Introduction
----
+
 
 The MarkedView is the markdown text viewer.
 
@@ -17,8 +16,10 @@ How to use is simple , just specify the contents to an instance of the view.
 
 Call is available from any text from any file.
 
+display image corresponds to jpg, png and gif.
 
-```
+
+```xml
 // xml
 <com.mittsu.markedview.MarkedView
     android:id="@+id/md_view"
@@ -28,7 +29,7 @@ Call is available from any text from any file.
 ```
 
 
-```
+```java
 // Java code
 
 import com.mittsu.markedview.MarkedView;
@@ -52,17 +53,17 @@ mdView.setMDText(contents);
 
 
 ## Installation
----
+
 
 Add the dependency
 
-```
+```gradle
 dependencies {
     compile 'com.mittsu:markedview:1.0.0@aar'
 }
 ```
 
 ## License
----
+
 
 MarkedView is available under the MIT license. See the LICENSE file for more info.
