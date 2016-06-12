@@ -20,10 +20,10 @@ Call is available from any text from any file.
 
 ```
 // xml
-    <com.mittsu.markedview.MarkedView
-        android:id="@+id/md_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+<com.mittsu.markedview.MarkedView
+    android:id="@+id/md_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
 
 ```
 
@@ -45,7 +45,7 @@ MarkedView mdView = (MarkedView)findViewById(R.id.md_view);
 // contents is Markdown text.
 mdView.setMDText(contents);
 
-// or load Markdown file pattern
+// load Markdown file pattern.
 // mdView.loadFile(filePath)
 
 ```
@@ -54,7 +54,13 @@ mdView.setMDText(contents);
 ## Installation
 ---
 
-TODO
+Add the dependency
+
+```
+dependencies {
+    compile 'com.mittsu:markedview:1.0.0@aar'
+}
+```
 
 ## License
 ---
