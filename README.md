@@ -10,7 +10,7 @@ The MarkedView is the markdown text viewer.
 
 
 ## Usage
----
+
 
 How to use is simple , just specify the contents to an instance of the view.
 
