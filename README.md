@@ -12,11 +12,7 @@ The MarkedView is the markdown text viewer.
 ## Usage
 
 
-How to use is simple , just specify the contents to an instance of the view.
-
-Call is available from any text from any file.
-
-display image corresponds to jpg, png and gif.
+It is a simple module, which enable you to convert any files into initialized view.
 
 
 ```xml
