@@ -1,5 +1,8 @@
 ## MarkedView Example
 
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-MarkedView-green.svg?style=true)](https://android-arsenal.com/details/1/3801)
+
+
 ![sample_sc](sample_sc.png)
 
 
