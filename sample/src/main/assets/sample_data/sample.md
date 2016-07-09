@@ -1,7 +1,10 @@
 ## MarkedView Example
 ---
 
-![sample_sc](https://assets-cdn.github.com/favicon.ico)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-MarkedView-green.svg?style=true)](https://android-arsenal.com/details/1/3801)
+
+
+![sample_sc](http://tk2-212-15794.vs.sakura.ne.jp/sample/oss-imgs/marked-sample-img.png)
 
 
 ## Introduction
@@ -13,12 +16,10 @@ The MarkedView is the markdown text viewer.
 ## Usage
 ---
 
-How to use is simple , just specify the contents to an instance of the view.
-
-Call is available from any text from any file.
+It is a simple module, which enable you to convert any files into initialized view.
 
 
-```
+```xml
 // xml
 <com.mittsu.markedview.MarkedView
     android:id="@+id/md_view"
@@ -28,7 +29,7 @@ Call is available from any text from any file.
 ```
 
 
-```
+```java
 // Java code
 
 import com.mittsu.markedview.MarkedView;
@@ -56,11 +57,18 @@ mdView.setMDText(contents);
 
 Add the dependency
 
-```
+```gradle
 dependencies {
     compile 'com.mittsu:markedview:1.0.0@aar'
 }
 ```
+
+## See Also
+---
+
+* MarkedView-for-iOS
+https://github.com/mittsuu/MarkedView-for-iOS
+
 
 ## License
 ---
