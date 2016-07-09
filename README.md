@@ -3,7 +3,7 @@
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-MarkedView-green.svg?style=true)](https://android-arsenal.com/details/1/3801)
 
 
-![sample_sc](sample_sc.gif)
+![sample_sc](https://github.com/mittsuu/MarkedView-for-Android/blob/master/sample-sc.gif)
 
 
 ## Introduction
