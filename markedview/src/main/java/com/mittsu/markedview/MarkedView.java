@@ -123,6 +123,8 @@ public final class MarkedView extends WebView {
     private String escapeForText(String mdText){
         String escText = mdText.replace("\n", "\\\\n");
         escText = escText.replace("'", "\\\'");
+        //in some cases the string may have "\r" and our view will show nothing,so replace it
+        escText = escText.replace("\r","");
         return escText;
     }
 
