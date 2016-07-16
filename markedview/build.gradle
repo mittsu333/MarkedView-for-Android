@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 3
+        versionName "1.0.2"
     }
 
     sourceSets{
@@ -23,7 +23,7 @@ publish {
     userOrg = 'mittsuu'
     groupId = 'com.mittsu'
     artifactId = 'markedview'
-    publishVersion = '1.0.1'
+    publishVersion = '1.0.2'
     desc = 'The MarkedView is the markdown text viewer.'
     website = 'https://github.com/mittsuu/MarkedView-for-Android'
 }

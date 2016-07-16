@@ -1,6 +1,9 @@
 ## MarkedView Example
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-MarkedView-green.svg?style=true)](https://android-arsenal.com/details/1/3801)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)]()
+[![Platform](https://img.shields.io/badge/platform-Android-green.svg) ]()
+[![Download](https://api.bintray.com/packages/mittsuu/maven/markedview/images/download.svg) ](https://bintray.com/mittsuu/maven/markedview/_latestVersion)
 
 
 ![sample_sc](https://github.com/mittsuu/MarkedView-for-Android/blob/master/sample-sc.gif)
@@ -58,7 +61,7 @@ Add the dependency
 
 ```gradle
 dependencies {
-    compile 'com.mittsu:markedview:1.0.1@aar'
+    compile 'com.mittsu:markedview:1.0.2@aar'
 }
 ```
 
