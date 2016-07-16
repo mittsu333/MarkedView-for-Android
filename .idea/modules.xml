@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MarkedViewLib.iml" filepath="$PROJECT_DIR$/MarkedViewLib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/example/app.iml" filepath="$PROJECT_DIR$/example/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sample/example.iml" filepath="$PROJECT_DIR$/sample/example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MarkedView-for-Android.iml" filepath="$PROJECT_DIR$/MarkedView-for-Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/markedview/markedview.iml" filepath="$PROJECT_DIR$/markedview/markedview.iml" />
       <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" />
     </modules>
