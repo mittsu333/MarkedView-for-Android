@@ -4,15 +4,16 @@ $(function() {
         langPrefix: ''
     });
 
-//    var renderer = new marked.Renderer();
-
     function escSub(text){
-        var result = text.match(/~.*?~/g);
+        var result = text.match(/~+.*?~+/g);
         if(result == null){
             return text;
         }
 
         $.each(result, function(index, val){
+            if(val.lastIndexOf('~~', 0) === 0){
+                return true;
+            }
             var escapedText = val.replace(/~/, '<sub>');
             escapedText = escapedText.replace(/~/, '</sub>');
             var reg = new RegExp(val, 'g');
@@ -48,19 +49,8 @@ $(function() {
         md_text = escSub(md_text);
         md_text = escSup(md_text);
 
-//        alert(md_text);
-
         // markdown html
         var md_html = marked(md_text);
-
-//        var md_html = marked(md_text,
-//                function (err, content) {
-//                    if (err) throw err;
-//                    alert(content);
-//                });
-
-//        alert(md_html);
-
 
         $('#preview').html(md_html);
 
