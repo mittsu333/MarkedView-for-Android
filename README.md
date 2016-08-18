@@ -83,4 +83,4 @@ This used the following open source components.
 ## License
 
 
-MarkedView is available under the MIT license. See the LICENSE file for more info.
+MarkedView is available under the MIT license. See the [LICENSE](https://github.com/mittsuu/MarkedView-for-Android/blob/master/LICENSE) file for more info.
