@@ -44,6 +44,7 @@ $(function() {
         if(md_text == ""){
           return false;
         }
+        $('#highlight').html(".hljs { display: block; word-wrap: normal; width: 500px; overflow-x: scroll; -webkit-text-size-adjust: none; }");
 
         md_text = md_text.replace(/\\n/g, "\n");
         md_text = escSub(md_text);
