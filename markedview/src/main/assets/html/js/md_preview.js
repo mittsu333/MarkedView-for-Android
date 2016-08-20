@@ -1,8 +1,54 @@
 $(function() {
 
+    var renderer = new marked.Renderer();
+
     marked.setOptions({
-        langPrefix: ''
+        langPrefix: '',
+        highlight: function(code){
+            return hljs.highlightAuto(code).value;
+        }
     });
+
+    renderer.code = function(code, lang, escaped){
+        var lineArray = code.split(/\r\n|\r|\n/);
+        var len = 0;
+        if(lineArray == null){
+            len = code.length;
+
+        }else{
+            $.each(lineArray, function(index, val){
+                if(len < val.length){
+                    len = val.length;
+                }
+            });
+        }
+
+        var code = code.replace(/&/g, '&amp;')
+                        .replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;')
+                        .replace(/"/g, '&quot;')
+                        .replace(/'/g, '&#39;');
+
+        if(!lang){
+            return '<pre><code style="'
+                + ' display: block; word-wrap: normal; overflow-x: scroll;'
+                + ' width: ' + len + 'rem; '
+                + ' -webkit-text-size-adjust: none;'
+                + '">'
+                + code
+                + '\n</code></pre>';
+        }
+
+        return '<pre><code class="'
+            + lang
+            + '" style="'
+            + ' display: block; word-wrap: normal; overflow-x: scroll;'
+            + ' width: ' + len + 'rem; '
+            + ' -webkit-text-size-adjust: none;'
+            + '">'
+            + code
+            + '\n</code></pre>';
+    };
 
     function escSub(text){
         var result = text.match(/~+.*?~+/g);
@@ -44,14 +90,13 @@ $(function() {
         if(md_text == ""){
           return false;
         }
-        $('#highlight').html(".hljs { display: block; word-wrap: normal; width: 500px; overflow-x: scroll; -webkit-text-size-adjust: none; }");
 
         md_text = md_text.replace(/\\n/g, "\n");
         md_text = escSub(md_text);
         md_text = escSup(md_text);
 
         // markdown html
-        var md_html = marked(md_text);
+        var md_html = marked(md_text, {renderer: renderer} );
 
         $('#preview').html(md_html);
 
