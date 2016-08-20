@@ -43,9 +43,7 @@ MarkedView mdView = (MarkedView)findViewById(R.id.md_view);
 // call from code
 // MarkedView mdView = new MarkedView(this);
 
-
-// set Markdown text pattern.
-// contents is Markdown text.
+// set markdown text pattern. ('contents' object is markdown text)
 mdView.setMDText(contents);
 
 // load Markdown file pattern.
@@ -53,6 +51,13 @@ mdView.setMDText(contents);
 
 ```
 
+```java
+/* option */
+
+// code block in scrolling be deactivated.
+mdView.setCodeScrollDisable();
+
+```
 
 ## Installation
 
