@@ -17,6 +17,9 @@ public class SampleActivity extends AppCompatActivity {
         FileCopyManager fcm = new FileCopyManager(this);
 
         MarkedView mdView = (MarkedView)findViewById(R.id.md_view);
+        // code block in scrolling be deactivated.
+        // mdView.setCodeScrollDisable();
+
         File mdFile = new File(fcm.getSampleFilePath(this));
         mdView.loadMDFile(mdFile);
 

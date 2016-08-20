@@ -1,6 +1,6 @@
 $(function() {
 
-    var renderer = new marked.Renderer();
+    var rend = new marked.Renderer();
 
     marked.setOptions({
         langPrefix: '',
@@ -9,7 +9,7 @@ $(function() {
         }
     });
 
-    renderer.code = function(code, lang, escaped){
+    rend.code = function(code, lang, escaped){
         var lineArray = code.split(/\r\n|\r|\n/);
         var len = 0;
         if(lineArray == null){
@@ -86,7 +86,7 @@ $(function() {
         return text;
     }
 
-    preview = function setMarkdown(md_text){
+    preview = function setMarkdown(md_text, codeScrollDisable){
         if(md_text == ""){
           return false;
         }
@@ -96,7 +96,12 @@ $(function() {
         md_text = escSup(md_text);
 
         // markdown html
-        var md_html = marked(md_text, {renderer: renderer} );
+        var md_html;
+        if(codeScrollDisable){
+            md_html = marked(md_text);
+        }else{
+            md_html = marked(md_text, {renderer: rend});
+        }
 
         $('#preview').html(md_html);
 

@@ -32,6 +32,7 @@ public final class MarkedView extends WebView {
     private static final String IMAGE_PATTERN = "!\\[(.*)\\]\\((.*)\\)";
 
     private String previewText;
+    private boolean codeScrollDisable;
 
     public MarkedView(Context context) {
         this(context, null);
@@ -113,10 +114,10 @@ public final class MarkedView extends WebView {
         String escMdText = escapeForText(bs64MdText);
 
         if(Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            previewText = String.format("javascript:preview('%s')", escMdText);
+            previewText = String.format("javascript:preview('%s', %b)", escMdText, isCodeScrollDisable());
 
         } else {
-            previewText = String.format("preview('%s')", escMdText);
+            previewText = String.format("preview('%s', %b)", escMdText, isCodeScrollDisable());
         }
     }
 
@@ -182,6 +183,17 @@ public final class MarkedView extends WebView {
         }else{
             return "";
         }
+    }
+
+
+    /* options */
+
+    public void setCodeScrollDisable(){
+        codeScrollDisable = true;
+    }
+
+    private boolean isCodeScrollDisable(){
+        return codeScrollDisable;
     }
 
 }
