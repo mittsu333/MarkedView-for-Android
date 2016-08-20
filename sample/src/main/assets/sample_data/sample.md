@@ -62,7 +62,7 @@ Add the dependency
 
 ```gradle
 dependencies {
-    compile 'com.mittsu:markedview:1.0.3@aar'
+    compile 'com.mittsu:markedview:1.0.4@aar'
 }
 ```
 
