@@ -53,11 +53,7 @@ public final class MarkedView extends WebView {
         // default browser is not called.
         setWebViewClient(new WebViewClient(){
             public void onPageFinished(WebView view, String url){
-                if(Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-                    loadUrl(previewText);
-                } else {
-                    evaluateJavascript(previewText, null);
-                }
+                sendScriptAction();
             }
         });
 
@@ -69,6 +65,14 @@ public final class MarkedView extends WebView {
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+        }
+    }
+
+    private void sendScriptAction() {
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            loadUrl(previewText);
+        } else {
+            evaluateJavascript(previewText, null);
         }
     }
 
@@ -119,6 +123,7 @@ public final class MarkedView extends WebView {
         } else {
             previewText = String.format("preview('%s', %b)", escMdText, isCodeScrollDisable());
         }
+        sendScriptAction();
     }
 
     private String escapeForText(String mdText){

@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     tools:context="com.mittsu.markedviewlib.SampleActivity">
 
-    <com.mittsu.markedview.MarkedView
-        android:id="@+id/md_view"
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MarkedViewLib</string>
     <string name="load_file">Load file</string>
     <string name="live_rendering">Live rendering</string>
 </resources>

@@ -1,11 +1,11 @@
 package com.mittsu.markedviewlib;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-
-import com.mittsu.markedview.MarkedView;
-
-import java.io.File;
+import android.view.Menu;
+import android.view.MenuItem;
 
 public class SampleActivity extends AppCompatActivity {
 
@@ -14,14 +14,33 @@ public class SampleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
 
-        FileCopyManager fcm = new FileCopyManager(this);
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.container, new LoadFileFragment());
+        ft.commit();
+    }
 
-        MarkedView mdView = (MarkedView)findViewById(R.id.md_view);
-        // code block in scrolling be deactivated.
-        // mdView.setCodeScrollDisable();
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.option, menu);
+        return true;
+    }
 
-        File mdFile = new File(fcm.getSampleFilePath(this));
-        mdView.loadMDFile(mdFile);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
 
+        switch (item.getItemId()) {
+            case R.id.load_file:
+                ft.replace(R.id.container, new LoadFileFragment());
+                break;
+            case R.id.live_render:
+                ft.replace(R.id.container, new LiveReviewFragment());
+                break;
+        }
+        ft.commit();
+
+        return super.onOptionsItemSelected(item);
     }
 }
