@@ -59,6 +59,19 @@ mdView.setCodeScrollDisable();
 
 ```
 
+## Demo
+
+* Load file
+
+Read markdown file from asset folder.
+
+* Live rendering
+
+Preview display on the right side of the input field.
+
+![sample_lr](https://github.com/mittsuu/MarkedView-for-Android/blob/master/sample-lr.png)
+
+
 ## Installation
 
 
@@ -66,7 +79,7 @@ Add the dependency
 
 ```gradle
 dependencies {
-    compile 'com.mittsu:markedview:1.0.4@aar'
+    compile 'com.mittsu:markedview:1.0.5@aar'
 }
 ```
 
