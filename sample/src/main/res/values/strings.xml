@@ -2,4 +2,30 @@
     <string name="app_name">MarkedViewLib</string>
     <string name="load_file">Load file</string>
     <string name="live_rendering">Live rendering</string>
+
+    <string name="live_view_example_text">
+        # Title\n\n
+        text\n
+        \n\n
+        * list\n
+        "    "* list\n
+        "        "* list\n
+        \n\n" "
+        [Example Link](sample)\n
+        \n
+        > text\n
+        \n
+        ~~cross off~~\n\n
+        text^sup^\n
+        text~sub~\n\n
+        \n
+        ## Tables\n
+        ---\n\n
+        | right | left | center |\n
+        | --- |:--- | --:|\n
+        | column | column | column |\n
+        | right | left | center |\n
+        | be | be | be |\n
+    </string>
+
 </resources>

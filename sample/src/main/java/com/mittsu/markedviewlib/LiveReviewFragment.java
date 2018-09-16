@@ -39,6 +39,8 @@ public final class LiveReviewFragment  extends Fragment {
             }
         });
 
+        edit.setText(R.string.live_view_example_text);
+
         return view;
     }
 
