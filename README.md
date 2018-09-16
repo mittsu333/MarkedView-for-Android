@@ -69,7 +69,7 @@ Read markdown file from asset folder.
 
 Preview display on the right side of the input field.
 
-![sample_lr](https://github.com/mittsuu/MarkedView-for-Android/blob/master/sample-lr.png)
+![sample_lr](https://github.com/mittsuu/MarkedView-for-Android/blob/master/sample-lr180917.png)
 
 
 ## Installation
