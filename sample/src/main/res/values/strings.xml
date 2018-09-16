@@ -22,7 +22,7 @@
         ## Tables\n
         ---\n\n
         | right | left | center |\n
-        | --- |:--- | --:|\n
+        | --: | :-- | :--: |\n
         | column | column | column |\n
         | right | left | center |\n
         | be | be | be |\n

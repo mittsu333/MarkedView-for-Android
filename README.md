@@ -6,7 +6,7 @@
 [![Download](https://api.bintray.com/packages/mittsuu/maven/markedview/images/download.svg) ](https://bintray.com/mittsuu/maven/markedview/_latestVersion)
 
 
-![sample_sc](https://github.com/mittsuu/MarkedView-for-Android/blob/master/sample-sc.gif)
+![sample_sc](https://github.com/mittsuu/MarkedView-for-Android/blob/master/sample_img/sample-sc.gif)
 
 
 ## Introduction
@@ -69,7 +69,7 @@ Read markdown file from asset folder.
 
 Preview display on the right side of the input field.
 
-![sample_lr](https://github.com/mittsuu/MarkedView-for-Android/blob/master/sample-lr180917.png)
+![sample_lr](https://github.com/mittsuu/MarkedView-for-Android/blob/master/sample_img/sample-lr1809170821.png)
 
 
 ## Installation
